@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+  <header>
+    <h2>Question Answering with Deep Learning</h2>
+  </header>
+
+<body style="font-family: Roboto; background-image: url({{ url_for('static', filename='image/bg.jpg') }}); background-size: 4000px 4000px">
+<div style="display: {{testing_display}}">
+<div class="modal-content" id="testing_form">
+  <h2 id="modal_header"> Ask a Question </h2>
+  <form method="POST">
+    <label class="regular_label">Paragraph
+      <textarea class="text_input" id="paragraph_box" name="paragraph" rows="10">
+      </textarea>
+    </label>
+    <label class="regular_label">Question
+        <input class="text_input" id="question_box" name="question">
+    </label>
+    <label class="regular_label"> Model
+      <select class="text_input" name="model">
+        <option hidden selected>Select model</option>
+        <option selected>Bert</option>
+        <option>Albert</option>
+        <option>Electra</option>
+      </select>
+    </label>
+    <button class="submit_button">Predict</button>
+  </form>
+</div>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+<div style="display: {{result_display}}">
+<div class="modal-content" id="result_form" onload=highlight({{result_predicted_answer}})>
+  <h2> Result </h2>
+  <form method="GET">
+    <label class="regular_label">
+      <h3>
+        Paragraph
+      </h3>
+      <div class="text" id="result_context">
+        {{result_context | safe}}
+      </div>
+    </label>
+    <label class="regular_label">
+      <h3>
+        Question
+      </h3>
+      <div id="result_question" class="text">{{result_question}}</div>
+    </label>
+    <label class="regular_label" >
+      <h3>
+        Predicted Answer
+      </h3>
+      <div id="result_predicted_answer" class="text">{{result_predicted_answer}}</div>
+    </label>
+    <br>
+    <button class="submit_button" value="submit">Go back</button>
+  </form>
+</div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+</body>
+
+ <footer style = "text-align: center; background-color: #191A19 ">
+        <br/>
+
+        <p style="color:white">Fatma Zehra Çetin, Betül Ön</p>
+        <p style="color:white">© 2021 Yıldız Teknik Üniversitesi</p><br/>
+ </footer>
+</html>
+  
