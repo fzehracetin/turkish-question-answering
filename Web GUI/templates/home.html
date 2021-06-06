@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title style="position: absolute; top: 90px">Turkish Question Answering with Deep Learning</title>
+<link rel="icon" href="{{ url_for('static', filename='image/icon.svg') }}">
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
   <header>
-    <h2>Question Answering with Deep Learning</h2>
+    <h2>Turkish Question Answering with Deep Learning</h2>
   </header>
 
 <body style="font-family: Roboto; background-image: url({{ url_for('static', filename='image/bg.jpg') }}); background-size: 4000px 4000px">
@@ -17,11 +19,16 @@
   <h2 id="modal_header"> Ask a Question </h2>
   <form method="POST">
     <label class="regular_label">Paragraph
-      <textarea class="text_input" id="paragraph_box" name="paragraph" rows="10">
-      </textarea>
+      <input align="Right" type="submit" name="Submit" value="    Paragraph" class="image_button"
+             style="background-image: url({{ url_for('static', filename='image/delete.png') }});
+             border:none; background-repeat:no-repeat;background-size:100% 100%;cursor:pointer;">
+      <textarea class="text_input" id="paragraph_box" name="paragraph" rows="10">{{paragraph}}</textarea>
     </label>
     <label class="regular_label">Question
-        <input class="text_input" id="question_box" name="question">
+      <input align="Right" type="submit" name="Submit" value="    Question" class="image_button"
+             style="background-image: url({{ url_for('static', filename='image/delete.png') }});
+             border:none; background-repeat:no-repeat;background-size:100% 100%;cursor:pointer;">
+      <input class="text_input" id="question_box" name="question" value="{{question}}">
     </label>
     <label class="regular_label"> Model
       <select class="text_input" name="model">
@@ -31,9 +38,13 @@
         <option>Electra</option>
       </select>
     </label>
-    <button class="submit_button">Predict</button>
+    <input type="submit" value="Predict" name="Submit"
+           style=" width: 120px;background-color: #DAA19B;color: white;padding: 14px 20px;margin: 10px 170px;
+           border: none;border-radius: 4px;cursor: pointer;font-weight: bold;cursor:pointer;">
   </form>
 </div>
+  <br>
+  <br>
   <br>
   <br>
   <br>
@@ -65,7 +76,9 @@
       <div id="result_predicted_answer" class="text">{{result_predicted_answer}}</div>
     </label>
     <br>
-    <button class="submit_button" value="submit">Go back</button>
+      <input type="submit" value="Go Back" name="Submit"
+         style=" width: 120px;background-color: #DAA19B;color: white;padding: 14px 20px;margin: 10px 170px;
+         border: none;border-radius: 4px;cursor: pointer;font-weight: bold;cursor:pointer;">
   </form>
 </div>
   <br>
