@@ -178,4 +178,4 @@ if __name__ == "__main__":
     electra_model_class = init_electra()
     albert_model_class = init_albert()
     print("4. READY TO SERVE")
-    app.run(debug=True, port=8090)
+    app.run(debug=False, use_reloader=False, port=8090)
